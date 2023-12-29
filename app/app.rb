@@ -18,24 +18,4 @@ Time.zone = "UTC"
 # Application Resources
 
 Dir[APP_ROOT.join("app", "models", "*")].each { |model| require model }
-
-
-get "/" do
-  @widgets = Widget.all.order(:created_at)
-
-  erb :index
-end
-
-post "/widget" do
-  Time.zone = "UTC"
-
-  name = params[:name]
-  if name.nil? || name == ""
-    flash[:error] = "PLEASE ENTER YOUR NAME"
-    redirect to("/")
-    return
-  end
-
-  Widget.create!(name: name)
-  redirect to("/")
-end
+Dir[APP_ROOT.join("app", "controllers", "*")].each { |controller| require controller }
