@@ -3,14 +3,22 @@ require "sinatra/activerecord"
 require "sinatra/flash"
 require "active_support"
 
-require_relative "models/widget"
+require "pathname"
 
+APP_ROOT = Pathname.new(File.expand_path("..", __dir__))
 SQLITE_FILE = ENV["SQLITE_FILE_NAME"] || "app.sqlite3"
-set :database, { adapter: "sqlite3", database: SQLITE_FILE }
 
+## Application Configuration
+
+set :database, { adapter: "sqlite3", database: SQLITE_FILE }
 enable :sessions
 
 Time.zone = "UTC"
+
+# Application Resources
+
+Dir[APP_ROOT.join("app", "models", "*")].each { |model| require model }
+
 
 get "/" do
   @widgets = Widget.all.order(:created_at)
