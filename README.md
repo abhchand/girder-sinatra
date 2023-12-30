@@ -18,3 +18,9 @@ rackup config.ru
 The DB is created in `app.sqlite3` by default.
 
 The filename can be overriden by setting `$SQLITE_FILE_NAME`
+
+## Sinatra Console
+
+```shell
+bundle exec irb -I . -r app/app.rb
+```
