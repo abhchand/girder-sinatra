@@ -1,4 +1,4 @@
-post "/widget" do
+post "/widget", auth: :user do
   Time.zone = "UTC"
 
   name = params[:name]
