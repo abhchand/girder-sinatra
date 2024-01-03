@@ -10,7 +10,7 @@ bundle exec rake db:migrate
 ## Run
 
 ```shell
-rackup config.ru
+rerun rackup config.ru
 ```
 
 ## Database
