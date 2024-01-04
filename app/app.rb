@@ -5,8 +5,10 @@ require "active_support"
 
 require "pathname"
 
+ENV['RACK_ENV'] ||= 'development'
+
 APP_ROOT = Pathname.new(File.expand_path("..", __dir__))
-SQLITE_FILE = ENV["SQLITE_FILE_NAME"] || "app.sqlite3"
+SQLITE_FILE = ENV["SQLITE_FILE_NAME"] || "app.#{ENV['RACK_ENV']}.sqlite3"
 
 ## Application Configuration
 
