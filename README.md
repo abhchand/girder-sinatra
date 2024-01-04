@@ -25,7 +25,7 @@ bin/app console
 Generate a key to be used as the signing secret
 
 ```shell
-export SESSION_SECRET=$(ruby -rsecurerandom -e 'p SecureRandom.hex(32)')
+export SESSION_SECRET=$(ruby -rsecurerandom -e 'p SecureRandom.hex(32)' | tr -d '"')
 ```
 
 ```shell
