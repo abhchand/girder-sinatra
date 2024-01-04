@@ -12,7 +12,7 @@ SQLITE_FILE = ENV["SQLITE_FILE_NAME"] || "app.#{ENV['RACK_ENV']}.sqlite3"
 
 ## Application Configuration
 
-set :database, { adapter: "sqlite3", database: SQLITE_FILE }
+set :database, { adapter: "sqlite3", database: APP_ROOT.join('sqlite', SQLITE_FILE) }
 
 enable :sessions
 set :session_secret, ENV.fetch('SESSION_SECRET')

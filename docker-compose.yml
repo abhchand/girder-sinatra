@@ -15,4 +15,4 @@ services:
       # HOST:CONTAINER
       - 8080:8080
     volumes:
-      - .:/server
+      - ./sqlite:/server/sqlite
