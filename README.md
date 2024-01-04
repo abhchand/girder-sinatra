@@ -1,16 +1,23 @@
 # Example App
 
-## Setup
+## Local
+
+Setup:
 
 ```shell
-bundle exec rake db:create
-bundle exec rake db:migrate
+bin/app setup
 ```
 
-## Run
+Run:
 
 ```shell
-rerun rackup config.ru
+bin/app start
+```
+
+Sinatra console:
+
+```shell
+bin/app console
 ```
 
 ## Database
@@ -18,9 +25,3 @@ rerun rackup config.ru
 The DB is created in `app.sqlite3` by default.
 
 The filename can be overriden by setting `$SQLITE_FILE_NAME`
-
-## Sinatra Console
-
-```shell
-bundle exec irb -I . -r app/app.rb
-```
