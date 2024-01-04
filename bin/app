@@ -13,6 +13,8 @@ case "$1" in
     bundle exec rake db:create
     echo '== running rake db:migrate...'
     bundle exec rake db:migrate
+    echo '== running rake db:seed...'
+    bundle exec rake db:seed
     ;;
 
   start)
