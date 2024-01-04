@@ -20,8 +20,9 @@ Sinatra console:
 bin/app console
 ```
 
-## Database
+## Production
 
-The DB is created in `app.sqlite3` by default.
-
-The filename can be overriden by setting `$SQLITE_FILE_NAME`
+```shell
+docker compose build
+docker compose up
+```

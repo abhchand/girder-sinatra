@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  girder:
+    image: girder/girder:local
+    build:
+      context: .
+    environment:
+      RACK_ENV: production
+    extra_hosts:
+      # Allow accessing services running on `localhost`, outside the container
+      - host.docker.internal:host-gateway
+    ports:
+      # HOST:CONTAINER
+      - 8080:8080
+    volumes:
+      - .:/server
