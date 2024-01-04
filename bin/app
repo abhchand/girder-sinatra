@@ -18,7 +18,7 @@ case "$1" in
     ;;
 
   start)
-    rerun rackup config.ru
+    rerun rackup config.ru -s webrick
     ;;
 
   *)
