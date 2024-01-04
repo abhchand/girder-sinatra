@@ -7,6 +7,7 @@ services:
       context: .
     environment:
       RACK_ENV: production
+      SESSION_SECRET: ${SESSION_SECRET}
     extra_hosts:
       # Allow accessing services running on `localhost`, outside the container
       - host.docker.internal:host-gateway

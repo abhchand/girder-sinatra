@@ -18,7 +18,8 @@ case "$1" in
     ;;
 
   start)
-    rerun rackup config.ru -s webrick
+    SESSION_SECRET=5caf3248d93038da5b2a8e6a50dd25ba5a3bc290ae814564135aa890989ec01d \
+      rerun rackup config.ru -s webrick
     ;;
 
   *)
