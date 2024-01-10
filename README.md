@@ -22,10 +22,12 @@ bin/app console
 
 ## Production
 
-Generate a key to be used as the signing secret
-
 ```shell
+# Generate a key to be used as the signing secret
 export SESSION_SECRET=$(ruby -rsecurerandom -e 'p SecureRandom.hex(32)' | tr -d '"')
+
+# [OPTIONAL] Specify a port. Defaults to 8080
+export APP_PORT=4567
 ```
 
 ```shell
