@@ -2,7 +2,7 @@ version: '3'
 
 services:
   girder:
-    image: girder/girder:local
+    image: girder/girder:${DOCKER_TAG:-latest}
     build:
       context: .
     environment:
