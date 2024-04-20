@@ -12,3 +12,6 @@ end
 
 puts "\t=== Seeding Widgets"
 w1 = Widget.create!(name: "Foo")
+
+puts "\t=== Seeding Users"
+User.create!(name: 'indra', password: 'purpose')
