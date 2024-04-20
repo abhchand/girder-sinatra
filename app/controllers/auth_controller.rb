@@ -34,12 +34,12 @@ post "/login" do
   user = User.find_by_name(username)
   if user.nil?
     flash[:error] = "Invalid credentials"
-    redirect back
+    redirect "/login"
   end
 
   if user.password != password
     flash[:error] = "Invalid credentials"
-    redirect back
+    redirect "/login"
   end
 
   session[:user_id] = user.id
