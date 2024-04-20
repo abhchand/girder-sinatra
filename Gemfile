@@ -4,6 +4,7 @@ ruby "3.0.0"
 
 gem "activerecord", "~> 6.0.0"
 gem "activesupport", "~> 6.0.0"
+gem "dotenv", "~> 3.1"
 gem "pry", "~> 0.14.2"
 gem "rake", "~> 13.1.0"
 gem "rerun", "~> 0.11.0"
