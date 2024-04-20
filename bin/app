@@ -9,6 +9,8 @@ case "$1" in
     ;;
 
   setup)
+    echo '== running bundle install...'
+    bundle check || bundle install
     echo '== running rake db:create...'
     bundle exec rake db:create
     echo '== running rake db:migrate...'
