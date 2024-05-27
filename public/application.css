@@ -8,3 +8,61 @@ body {
   font-variation-settings: "wdth" 100;
 }
 
+.content {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.recipes-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.recipe-item {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 20px;
+  height: 150px;
+  margin-bottom: 15px;
+}
+.recipe-item--image {
+  height: 150px;
+  min-width: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.recipe-item img {
+  height: 100%;
+  width: auto;
+}
+.recipe-item--details {
+  flex-grow: 1;
+  padding: 15px 30px;
+  font-size: 36px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.recipe-item--details a {
+  text-decoration: none;
+  color: black;
+}
+.recipe-item--actions {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.recipe-item--actions svg {
+  height: 40px;
+  width: 40px;
+}
