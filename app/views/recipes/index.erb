@@ -12,24 +12,6 @@
   <h1>Recipes</h1>
 
   <div class="recipe-list">
-  <% @recipes.each do |recipe| %>
-    <div class="recipe-item" data-id="<%= recipe.id %>">
-      <div class="recipe-item--image">
-        <a href="/recipes/<%= recipe.slug %>">
-          <img src="/images/avocado-toast.jpg" />
-        </a>
-      </div>
-      <div class="recipe-item--details">
-        <span>
-          <a href="/recipes/<%= recipe.slug %>">
-            <%= recipe.name %>
-          </a>
-        </span>
-      </div>
-      <div class="recipe-item--actions">
-        <%= @icon_share %>
-      </div>
-    </div>
-  <% end %>
+    <%= erb(:"recipes/recipe-item", {}, recipes: @recipes, share_icon: @share_icon) %>
   </div>
 </div>

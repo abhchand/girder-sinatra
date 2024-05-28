@@ -1,0 +1,19 @@
+<% recipes.each do |recipe| %>
+  <div class="recipe-item" data-id="<%= recipe.id %>">
+    <div class="recipe-item--image">
+      <a href="/recipes/<%= recipe.slug %>">
+        <img src="/images/avocado-toast.jpg" />
+      </a>
+    </div>
+    <div class="recipe-item--details">
+      <span>
+        <a href="/recipes/<%= recipe.slug %>">
+          <%= recipe.name %>
+        </a>
+      </span>
+    </div>
+    <div class="recipe-item--actions">
+      <%= share_icon %>
+    </div>
+  </div>
+<% end %>
