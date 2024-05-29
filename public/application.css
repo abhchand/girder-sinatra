@@ -56,6 +56,7 @@ input {
 }
 .recipe-action-bar {
   width: 100%;
+  height: 36px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -64,6 +65,7 @@ input {
   margin-bottom: 20px;
 }
 #recipe-sort-by button {
+  height: 36px;
   margin: 0;
   border: 1px solid gray;
   border-radius: 0;
@@ -73,6 +75,28 @@ input {
 #recipe-sort-by button.selected {
   color: white;
   background-color: gray;
+}
+#recipe-pagination {
+  margin-left: auto;
+  height: 100%;
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#recipe-pagination .nav-arrow {
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+}
+#recipe-pagination svg {
+  height: 100%;
+  width: 100%;
+}
+#recipe-pagination span {
+  /* matches height of action bar */
+  line-height: 36px;
 }
 #recipe-list {
   width: 100%;

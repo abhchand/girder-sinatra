@@ -9,7 +9,15 @@ get "/api/recipes" do
     return
   end
 
-  locals = { recipes: response["items"], sort_by: params['sort_by'] }
+  locals = {
+    recipes: response["items"],
+    sort_by: params['sort_by'],
+    pagination: {
+      first_num: response["first_num"],
+      last_num: response["last_num"],
+      total: response["total"]
+    }
+  }
   options = { layout: false }
   html = erb(:"recipes/recipe-item", options, locals)
 

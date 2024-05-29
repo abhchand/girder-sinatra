@@ -3,6 +3,18 @@
     <div id="recipe-sort-by">
       <button data-id="created_at" onclick="onRecipeSort(event)" class="recipe-sort-by--recent<%= ' selected' if sort_by == "created_at" %>">Sort By Recent</button><button data-id="name" onclick="onRecipeSort(event)" class="recipe-sort-by--name<%= ' selected' if sort_by == "name" %>">Sort By Name</button>
     </div>
+
+    <div id="recipe-pagination">
+      <div class="nav-arrow">
+        <%= svg_icon(:left_arrow) %>
+      </div>
+      <span>
+        <%= pagination[:first_num] %> - <%= pagination[:last_num] %> of <%= pagination[:total] %>
+      </span>
+      <div class="nav-arrow">
+        <%= svg_icon(:right_arrow) %>
+      </div>
+    </div>
   </div>
 
   <div id="recipe-list">
