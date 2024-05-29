@@ -1,5 +1,6 @@
 get "/recipes", auth: :user do
-  @recipes = Recipe.all.order(:name)
+  response = RecipeSearchService.new(params).call
 
+  @recipes = response["items"]
   erb :"recipes/index"
 end
