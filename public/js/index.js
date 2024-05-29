@@ -1,13 +1,25 @@
 function onRecipeSearch(_event) {
-  updateRecipeList();
+  renderRecipeList();
 }
 
-function updateRecipeList() {
+function onRecipeSort(_event) {
+  const curSelected = document.querySelector('button.selected');
+  const newSelected = event.currentTarget;
+
+  curSelected.classList.remove('selected');
+  newSelected.classList.add('selected');
+
+  renderRecipeList();
+}
+
+function renderRecipeList() {
   const search = document.getElementById("recipe-search").value;
+  const sortBy = document.querySelector('button.selected').dataset.id;
+
   const params = new URLSearchParams({
     page: '1',
     search: search,
-    sort_by: 'created_at'
+    sort_by: sortBy
   });
 
   const url = `/api/recipes?${params.toString()}`;
@@ -20,7 +32,7 @@ function updateRecipeList() {
 }
 
 function onSuccess(json) {
-  curNode = document.getElementById("recipe-list");
+  curNode = document.getElementById("recipe-content");
   newNode = fromHTML(json['html'])
 
   curNode.replaceWith(newNode);

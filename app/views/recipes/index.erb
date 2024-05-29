@@ -10,5 +10,5 @@
     onkeyup = "onRecipeSearch(event);"
     />
 
-  <%= erb(:"recipes/recipe-item", {}, recipes: @recipes) %>
+  <%= erb(:"recipes/recipe-item", {}, recipes: @recipes, sort_by: @sort_by) %>
 </div>

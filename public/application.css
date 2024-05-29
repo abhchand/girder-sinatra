@@ -12,6 +12,24 @@ a:link, a:visited, a:hover, a:active {
   color: blue;
 }
 
+button {
+  width: 130px;
+  height: 36px;
+  font-weight: 600;
+
+  /*  CSS magic: 1px keeps the text vertically aligned in the button  */
+  line-height: 1px;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
+}
+
 nav {
   margin-bottom: 40px;
 }
@@ -24,7 +42,6 @@ input {
   padding: 10px 15px;
   font-size: 16px;
   line-height: 48px;
-  border: 1px solid $form_elements_border_color;
 }
 
 .content {
@@ -35,9 +52,28 @@ input {
 
 #recipe-search {
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
-
+.recipe-action-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#recipe-sort-by button {
+  margin: 0;
+  border: 1px solid gray;
+  border-radius: 0;
+  background-color: white;
+  font-weight: 400;
+}
+#recipe-sort-by button.selected {
+  color: white;
+  background-color: gray;
+}
 #recipe-list {
   width: 100%;
   display: flex;
@@ -45,7 +81,6 @@ input {
   justify-content: flex-start;
   align-items: stretch;
 }
-
 .recipe-item {
   border: 1px solid lightgray;
   border-radius: 10px;

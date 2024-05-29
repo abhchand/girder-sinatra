@@ -1,21 +1,29 @@
-<div id="recipe-list">
-<% recipes.each do |recipe| %>
-  <div class="recipe-item" data-id="<%= recipe.id %>">
-    <div class="recipe-item--image">
-      <a href="/recipes/<%= recipe.slug %>">
-        <img src="/images/avocado-toast.jpg" />
-      </a>
-    </div>
-    <div class="recipe-item--details">
-      <span>
-        <a href="/recipes/<%= recipe.slug %>">
-          <%= recipe.name %>
-        </a>
-      </span>
-    </div>
-    <div class="recipe-item--actions">
-      <%= svg_icon(:share) %>
+<div id="recipe-content">
+  <div class="recipe-action-bar">
+    <div id="recipe-sort-by">
+      <button data-id="created_at" onclick="onRecipeSort(event)" class="recipe-sort-by--recent<%= ' selected' if sort_by == "created_at" %>">Sort By Recent</button><button data-id="name" onclick="onRecipeSort(event)" class="recipe-sort-by--name<%= ' selected' if sort_by == "name" %>">Sort By Name</button>
     </div>
   </div>
-<% end %>
+
+  <div id="recipe-list">
+  <% recipes.each do |recipe| %>
+    <div class="recipe-item" data-id="<%= recipe.id %>">
+      <div class="recipe-item--image">
+        <a href="/recipes/<%= recipe.slug %>">
+          <img src="/images/avocado-toast.jpg" />
+        </a>
+      </div>
+      <div class="recipe-item--details">
+        <span>
+          <a href="/recipes/<%= recipe.slug %>">
+            <%= recipe.name %>
+          </a>
+        </span>
+      </div>
+      <div class="recipe-item--actions">
+        <%= svg_icon(:share) %>
+      </div>
+    </div>
+  <% end %>
+  </div>
 </div>

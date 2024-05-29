@@ -9,7 +9,7 @@ get "/api/recipes" do
     return
   end
 
-  locals = { recipes: response["items"] }
+  locals = { recipes: response["items"], sort_by: params['sort_by'] }
   options = { layout: false }
   html = erb(:"recipes/recipe-item", options, locals)
 
