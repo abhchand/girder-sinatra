@@ -33,7 +33,12 @@ input {
   padding: 40px 0;
 }
 
-.recipes-list {
+#recipe-search {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+#recipe-list {
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,12 @@
 
   <h1>Recipes</h1>
 
-  <div class="recipe-list">
-    <%= erb(:"recipes/recipe-item", {}, recipes: @recipes) %>
-  </div>
+  <input
+    id="recipe-search"
+    placeholder="search recipes"
+    type = "text"
+    onkeyup = "onRecipeSearch(event);"
+    />
+
+  <%= erb(:"recipes/recipe-item", {}, recipes: @recipes) %>
 </div>
