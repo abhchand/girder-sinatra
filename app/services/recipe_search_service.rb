@@ -38,7 +38,7 @@ class RecipeSearchService
     @page ||=
       begin
         max_page = (@total.to_f / page_size).ceil
-        req_page = @params['page'] || 1
+        req_page = (@params['page'] || 1).to_i
         req_page > 0 && req_page <= max_page ? req_page : 1
       end
   end
