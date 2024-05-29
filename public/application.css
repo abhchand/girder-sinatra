@@ -16,6 +16,17 @@ nav {
   margin-bottom: 40px;
 }
 
+input {
+  box-sizing: border-box;
+  width: 300px;
+  height: 36px;
+  margin: 10px 0;
+  padding: 10px 15px;
+  font-size: 16px;
+  line-height: 48px;
+  border: 1px solid $form_elements_border_color;
+}
+
 .content {
   width: 980px;
   margin: 0 auto;
