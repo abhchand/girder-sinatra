@@ -23,7 +23,7 @@ set :session_secret, ENV.fetch('SESSION_SECRET')
 Time.zone = "UTC"
 
 # Application Resources
-%w[controllers models services].each do |type|
+%w[controllers helpers models services].each do |type|
   glob = APP_ROOT.join("app", type, "**", "*.rb")
   Dir[glob].each { |file| require file }
 end
