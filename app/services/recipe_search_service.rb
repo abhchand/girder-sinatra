@@ -26,18 +26,23 @@ class RecipeSearchService
 
     {
       'items' => @recipes,
-      'total' => @total,
-      'first_num' => @first_num,
-      'last_num' => @last_num
+      'first_item' => @first_item,
+      'last_item' => @last_item,
+      'total_items' => @total,
+      'current_page' => page,
+      'last_page' => max_page
     }
   end
 
   private
 
+  def max_page
+    @max_page ||= (@total.to_f / page_size).ceil
+  end
+
   def page
     @page ||=
       begin
-        max_page = (@total.to_f / page_size).ceil
         req_page = (@params['page'] || 1).to_i
         req_page > 0 && req_page <= max_page ? req_page : 1
       end
@@ -62,8 +67,8 @@ class RecipeSearchService
     #
     #   * sql OFFSET will be page-1 * page_size = 2 * 2 = 4
     #   * sql LIMIT will be page_size = 2
-    #   * first_num will be (page * page_size) + 1 = offset + 1 = 5
-    #   * last_num will be first_num + page_size - 1 = 5 + 2 - 1 = 6
+    #   * first_item will be (page * page_size) + 1 = offset + 1 = 5
+    #   * last_item will be first_item + page_size - 1 = 5 + 2 - 1 = 6
     #     * exception: if first or last num are > total, they will be trimmed
     #       to total
     #
@@ -71,12 +76,12 @@ class RecipeSearchService
     limit = page_size
     @recipes = @recipes.offset(offset).limit(limit)
 
-    @first_num = offset + 1
-    @last_num = @first_num + page_size - 1
+    @first_item = offset + 1
+    @last_item = @first_item + page_size - 1
 
     # Trim if needed
-    @first_num = @total if @first_num > @total
-    @last_num = @total if @last_num > @total
+    @first_item = @total if @first_item > @total
+    @last_item = @total if @last_item > @total
   end
 
   def search!

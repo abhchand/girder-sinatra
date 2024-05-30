@@ -13,9 +13,11 @@ get "/api/recipes" do
     recipes: response["items"],
     sort_by: params['sort_by'],
     pagination: {
-      first_num: response["first_num"],
-      last_num: response["last_num"],
-      total: response["total"]
+      first_item: response["first_item"],
+      last_item: response["last_item"],
+      total_items: response["total_items"],
+      current_page: response["current_page"],
+      last_page: response["last_page"]
     }
   }
   options = { layout: false }
