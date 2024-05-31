@@ -44,12 +44,21 @@ input {
   line-height: 48px;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.nav--user {
+  margin-left: auto;
+}
+
 .content {
   width: 980px;
   margin: 0 auto;
   padding: 40px 0;
 }
-
 #recipe-search {
   width: 100%;
   margin-bottom: 20px;
