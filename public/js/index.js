@@ -82,3 +82,16 @@ function getCurrentSearch() {
 function getCurrentSortBy() {
   return document.querySelector("button.selected").dataset.id;
 }
+
+function setFlashError(text) {
+  const span = fromHTML(`<span>${text}</span>`);
+  const dismiss = fromHTML(`<a href="#" onclick="clearFlashError()">(dismiss)</a>`);
+
+  const flash = document.getElementById("flash");
+  flash.appendChild(span);
+  flash.appendChild(dismiss);
+}
+
+function clearFlashError() {
+  document.getElementById("flash").innerHTML = "";
+}

@@ -59,6 +59,13 @@ nav {
   margin: 0 auto;
   padding: 40px 0;
 }
+#flash {
+  margin: 10px 0;
+}
+#flash > span {
+  color: red;
+  margin-right: 5px;
+}
 #recipe-search {
   width: 100%;
   margin-bottom: 20px;
