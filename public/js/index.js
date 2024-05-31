@@ -111,7 +111,7 @@ function getCurrentSortBy() {
 
 function setFlashError(text) {
   const span = fromHTML(`<span>${text}</span>`);
-  const dismiss = fromHTML(`<a href="#" onclick="clearFlashError()">(dismiss)</a>`);
+  const dismiss = fromHTML(`<a href="" onclick="clearFlashError()">(dismiss)</a>`);
 
   const flash = document.getElementById("flash");
   flash.appendChild(span);
