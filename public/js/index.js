@@ -1,5 +1,6 @@
 function onRecipeSearch(_event) {
-  renderRecipeList();
+  // Reset the page to the first each time we search
+  renderRecipeList({ page: 1 });
 }
 
 function onRecipeSort(_event) {
@@ -9,17 +10,25 @@ function onRecipeSort(_event) {
   curSelected.classList.remove('selected');
   newSelected.classList.add('selected');
 
-  renderRecipeList();
+  // Reset the page to the first each time we change sorting
+  renderRecipeList({ page: 1 });
 }
 
-function renderRecipeList() {
-  const search = document.getElementById("recipe-search").value;
-  const sortBy = document.querySelector('button.selected').dataset.id;
+function onPaginationNext() {
+  // Don't worry about lower/upper bounds - the server gracefully handles this
+  renderRecipeList({ page: getCurrentPage() + 1 });
+}
 
+function onPaginationPrev() {
+  // Don't worry about lower/upper bounds - the server gracefully handles this
+  renderRecipeList({ page: getCurrentPage() - 1 });
+}
+
+function renderRecipeList({ page }) {
   const params = new URLSearchParams({
-    page: '1',
-    search: search,
-    sort_by: sortBy
+    page: page || getCurrentPage(),
+    search: getCurrentSearch(),
+    sort_by: getCurrentSortBy()
   });
 
   const url = `/api/recipes?${params.toString()}`;
@@ -60,4 +69,16 @@ function fromHTML(html, trim = true) {
   // based on whether the input HTML had one or more roots.
   if (result.length === 1) return result[0];
   return result;
+}
+
+function getCurrentPage() {
+  return parseInt(document.getElementById("recipe-content").dataset.currentPage);
+}
+
+function getCurrentSearch() {
+  return document.getElementById("recipe-search").value;
+}
+
+function getCurrentSortBy() {
+  return document.querySelector("button.selected").dataset.id;
 }

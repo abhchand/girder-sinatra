@@ -79,7 +79,6 @@ input {
 #recipe-pagination {
   margin-left: auto;
   height: 100%;
-  width: 140px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -97,6 +96,7 @@ input {
 #recipe-pagination span {
   /* matches height of action bar */
   line-height: 36px;
+  margin: 0 5px;
 }
 #recipe-list {
   width: 100%;

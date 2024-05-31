@@ -1,19 +1,19 @@
-<div id="recipe-content">
+<div id="recipe-content" data-current-page=<%= pagination[:current_page] %>>
   <div class="recipe-action-bar">
     <div id="recipe-sort-by">
       <button data-id="created_at" onclick="onRecipeSort(event)" class="recipe-sort-by--recent<%= ' selected' if sort_by == "created_at" %>">Sort By Recent</button><button data-id="name" onclick="onRecipeSort(event)" class="recipe-sort-by--name<%= ' selected' if sort_by == "name" %>">Sort By Name</button>
     </div>
 
     <div id="recipe-pagination">
-      <div class="nav-arrow">
+      <button class="nav-arrow" onclick="onPaginationPrev()">
         <%= svg_icon(:left_arrow) %>
-      </div>
+      </button>
       <span>
         <%= pagination[:first_item] %> - <%= pagination[:last_item] %> of <%= pagination[:total_items] %>
       </span>
-      <div class="nav-arrow">
+      <button class="nav-arrow" onclick="onPaginationNext()">
         <%= svg_icon(:right_arrow) %>
-      </div>
+      </button>
     </div>
   </div>
 
