@@ -155,6 +155,8 @@ nav {
   color: black;
 }
 .recipe-item--actions {
+  /* required for copy confirmation to be absolutely positioned */
+  position: relative;
   width: 50px;
   display: flex;
   justify-content: center;
@@ -164,4 +166,13 @@ nav {
 .recipe-item--actions svg {
   height: 35px;
   width: 35px;
+  cursor: pointer;
+}
+.recipe-item--copied {
+  position: absolute;
+  top: 75px;
+  padding: 5px 8px;
+  background-color: #FBDB65;
+  color: black;
+  border-radius: 4px;
 }

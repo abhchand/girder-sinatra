@@ -3,6 +3,32 @@ function onRecipeSearch(_event) {
   renderRecipeList({ page: 1 });
 }
 
+function onRecipeShare(event) {
+  const clicked = event.currentTarget;
+  const item = clicked.closest(".recipe-item");
+
+  // Copy to clipboard
+  if (location.protocol !== "https:") {
+    setFlashError("https is required to copy to clipboard");
+    return;
+  }
+  if (!navigator.clipboard) {
+    setFlashError("copying to clipboard is not supported in your browser.");
+    return;
+  }
+  navigator.clipboard
+    .writeText(window.location.origin + '/recipes/' + item.dataset.id)
+    .catch(() => setFlashError("could not copy to clipboard"));
+
+  // Create tool tip
+  const span = document.createElement("span");
+  span.setAttribute("class","recipe-item--copied");
+  span.textContent = "copied!";
+  clicked.appendChild(span);
+
+  setTimeout(() => clicked.removeChild(clicked.lastChild), 1000);
+}
+
 function onRecipeSort(_event) {
   const curSelected = document.querySelector('button.selected');
   const newSelected = event.currentTarget;
