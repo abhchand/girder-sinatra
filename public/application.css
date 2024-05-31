@@ -112,13 +112,13 @@ input {
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 20px;
-  height: 150px;
+  padding: 15px;
+  height: 100px;
   margin-bottom: 15px;
 }
 .recipe-item--image {
-  height: 150px;
-  min-width: 150px;
+  height: 100px;
+  min-width: 100px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -129,7 +129,7 @@ input {
 .recipe-item--details {
   flex-grow: 1;
   padding: 15px 30px;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
