@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   private
 
   def canonicalize_name
-    name.downcase! if name
+    return if name.nil?
+
+    name.downcase!
+    name.strip!
   end
 end
