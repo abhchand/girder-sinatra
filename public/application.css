@@ -50,6 +50,14 @@ nav {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
+
+.btn--hollow {
+  border: 1px black solid;
+  background-color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 .nav--user {
   margin-left: auto;
 }
@@ -66,6 +74,18 @@ nav {
   color: red;
   margin-right: 5px;
 }
+.recipe-title-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.recipe-title-bar button {
+  margin-left: auto;
+}
+
+
 #recipe-search {
   width: 100%;
   margin-bottom: 20px;
@@ -175,4 +195,39 @@ nav {
   background-color: #FBDB65;
   color: black;
   border-radius: 4px;
+}
+
+/* show page  */
+#recipe-header-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+#recipe-header-bar img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+#recipe-header-bar button {
+  padding: 5px 0;
+  font-size: 16px;
+  font-weight: 400;
+  width: 120px;
+}
+#recipe-header-bar svg {
+  height: 25px;
+  width: 25px;
+  margin-left: 4px;
+}
+.recipe-header-image {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 250px;
+}
+.recipe-header-icon--share {
+  margin-left: auto;
+  margin-right: 10px;
 }
